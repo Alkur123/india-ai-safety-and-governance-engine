@@ -60,17 +60,17 @@ The engine operates as a stateless middleware.
 
 ```mermaid
 graph TD
-    User[User Query] --> PII[🔐 Indian PII Redaction]
-    PII --> Intent[🚦 Harm & Intent Detection]
-    Intent --> Policy[📜 Policy Engine (IMC/BCI/SEBI)]
-    Policy --> Decision{Decision?}
-    
-    Decision -- 🔴 BLOCK --> BlockMsg[Block Response + Audit Log]
-    Decision -- 🟡 ABSTAIN --> AbstainMsg[Uncertainty Fallback]
-    Decision -- 🟢 ALLOW --> LLM[🤖 LLM Generation]
-    
-    LLM --> Verify[✅ Verification]
-    Verify --> Output[Final Response]
+    A[User Query] --> B[Indian PII Redaction]
+    B --> C[Harm and Intent Detection]
+    C --> D[Policy Engine]
+    D --> E{Decision}
+
+    E -->|BLOCK| F[Blocked Response and Audit Log]
+    E -->|ABSTAIN| G[Uncertainty Fallback]
+    E -->|ALLOW| H[LLM Generation]
+
+    H --> I[Verification]
+    I --> J[Final Response]
 ```
 
 ## 5️⃣ Real-World Examples
