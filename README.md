@@ -1,5 +1,5 @@
 #  India AI Governance Engine (V2)
-**Inference-Time AI Compliance Architecture**
+**Deterministic Governance Middleware for Regulated AI Systems in India**
 
 > *Submitted for AI for Bharat Hackathon 2025* | *Theme: Responsible AI for India*
 
@@ -13,9 +13,9 @@
 ## � Project Documentation (Direct Sources)
 For deep dives into the architecture, validation, and model specifications, please refer to the core documentation files:
 
-*   [** Requirements & Validation (REQUIREMENTS.md)**](REQUIREMENTS.md) - Full breakdown of validation metrics, test cases, and compliance mapping.
-*   [** System Design & Architecture (DESIGN.md)**](DESIGN.md) - Detailed technical architecture, future roadmap, and module specifications.
-*   [** Model Card (MODEL_CARD.md)**](MODEL_CARD.md) - Ethical considerations, limitations, and intended use cases.
+*   [**� Requirements & Validation (REQUIREMENTS.md)**](REQUIREMENTS.md) - Full breakdown of validation metrics, test cases, and compliance mapping.
+*   [**🏗️ System Design & Architecture (DESIGN.md)**](DESIGN.md) - Detailed technical architecture, future roadmap, and module specifications.
+*   [**�️ Model Card (MODEL_CARD.md)**](MODEL_CARD.md) - Ethical considerations, limitations, and intended use cases.
 
 ---
 
@@ -32,7 +32,7 @@ In India, integrating Large Language Models (LLMs) into public-sector and enterp
 2.  **Data Leaks:** High risk of exposing sensitive Indian PII (Aadhaar, PAN, Mobile Numbers) to US-based model providers.
 3.  **Audit Gaps:** Post-generation moderation is opaque, probabilistic, and hard to audit for regulatory compliance (SEBI, IMC, DPDP).
 
-> **The Gap:** Reliance on "aligned" models is not enough. Regulated industries need **deterministic, auditable guarantees** before an AI generates a single token.
+> **The Gap:** Reliance on "aligned" models is not enough. Regulated industries need **deterministic, auditable guarantees** before an AI generates a single token. This engine enforces compliance before a single token is generated.
 
 ---
 
@@ -134,10 +134,17 @@ graph TD
 | **Consistency** | Probabilistic (Varies) | **Deterministic (100%)** |
 | **Hardware** | Requires GPUs | **Generic CPU / Lambda** |
 
-### Validation Metrics (Test Dataset: 69 queries)
-*   **Precision:** **0.91 (91%)** - Low false positive rate
-*   **Recall:** **0.91 (91%)** - High violation detection rate
-*   **F1-Score:** **0.91** - Balanced performance
+### Validation Metrics
+
+**Evaluation Dataset:**
+*   69 curated governance queries
+*   Multi-category (Medical, Legal, Financial, PII, Safe)
+*   Includes adversarial + obfuscated prompts
+
+**Governance Accuracy:**
+*   **Precision:** **0.91 (91%)**
+*   **Recall:** **0.91 (91%)**
+*   **F1-Score:** **0.91**
 *   **False Positive Rate:** **< 5%**
 
 *(See [REQUIREMENTS.md](REQUIREMENTS.md) for full validation suite results)*
@@ -148,7 +155,7 @@ graph TD
 Designed for horizontal scalability on AWS.
 
 *   **API Gateway:** Handles incoming requests.
-*   **AWS Lambda:** Runs the Python governance logic (stateless).
+*   **AWS Lambda:** Runs the Python governance logic (stateless). Stateless design enables horizontal scaling without governance drift.
 *   **Amazon CloudWatch:** Tracks True/False positives and blocks.
 *   **Amazon S3 / DynamoDB:** Stores immutable audit logs for RTI compliance.
 
@@ -168,9 +175,10 @@ python main.py
 ---
 
 ## 8️⃣ Roadmap (V3)
-*   **Multilingual Governance:** Deep intent detection for Tamil, Telugu, and Kannada.
-*   **Human-in-the-Loop (HITL):** Workflow for reviewing ABSTAIN decisions.
-*   **Agentic Oversight:** Supervisor agents for multi-turn workflows.
+*   **Alignment-oriented governance**
+*   **Claim-level analysis**
+*   **Stability checks**
+*   **Calibrated abstention**
 
 ---
 
