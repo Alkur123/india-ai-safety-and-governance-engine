@@ -13,9 +13,9 @@
 ## � Project Documentation (Direct Sources)
 For deep dives into the architecture, validation, and model specifications, please refer to the core documentation files:
 
-*   [**� Requirements & Validation (REQUIREMENTS.md)**](REQUIREMENTS.md) - Full breakdown of validation metrics, test cases, and compliance mapping.
-*   [**🏗️ System Design & Architecture (DESIGN.md)**](DESIGN.md) - Detailed technical architecture, future roadmap, and module specifications.
-*   [**�️ Model Card (MODEL_CARD.md)**](MODEL_CARD.md) - Ethical considerations, limitations, and intended use cases.
+*   [** Requirements & Validation (REQUIREMENTS.md)**](REQUIREMENTS.md) - Full breakdown of validation metrics, test cases, and compliance mapping.
+*   [** System Design & Architecture (DESIGN.md)**](DESIGN.md) - Detailed technical architecture, future roadmap, and module specifications.
+*   [** Model Card (MODEL_CARD.md)**](MODEL_CARD.md) - Ethical considerations, limitations, and intended use cases.
 
 ---
 
