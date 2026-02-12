@@ -1,7 +1,7 @@
 #  India AI Governance Engine (V2)
 **Deterministic Governance Middleware for Regulated AI Systems in India**
 
-> *Submitted for AI for Bharat Hackathon 2025* | *Theme: Responsible AI for India*
+> *Submitted for AI for Bharat Hackathon 2026* | *Theme: Responsible AI for India*
 
 [![Status](https://img.shields.io/badge/Status-Prototype-success?style=for-the-badge)](https://huggingface.co/spaces/jash-ai/AI-Governance-Engine)
 [![Compliance](https://img.shields.io/badge/Compliance-SEBI_%7C_Medical_Council_%7C_DPDP-blue?style=for-the-badge&logo=policys)](https://huggingface.co/spaces/jash-ai/AI-Governance-Engine)
