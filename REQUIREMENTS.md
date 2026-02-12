@@ -124,18 +124,54 @@ To ensure this system is **production-ready today**, we made specific design cho
 
 ---
 
-## 6. 🔮 Future Roadmap: Overcoming Limitations
+## 6. 🔮 V3 Architecture Direction
 
-We are building this engine to evolve alongside Indian AI regulations.
+V2 implements deterministic, rule-based regulatory enforcement at inference time.
+V3 evolves the governance layer toward alignment-oriented decision evaluation while maintaining auditability and performance constraints.
 
--   **Phase 1 (Current - V2):** Deterministic Rule Engine for SEBI/Medical/DPDP. **Status: Live.**
--   **Phase 2 (Month 6) → Solving Language Barriers:** 
-    -   Deploy **IndicBERT** models to enforce regulations in **Hindi, Tamil, and Telugu**.
-    -   Launch "Safe Rewrite" API to guide users instead of just blocking them.
--   **Phase 3 (Month 12) → Solving Rigidity:** 
-    -   **Hybrid Architecture:** Use small SLMs (Phi-3) to detect subtle "intent" violations that regex misses, then verify with hard rules.
-    -   **Context Memory:** Session-based risk scoring to prevent "slow" jailbreaks.
--   **Phase 4 (Month 18):** Automated **"Gazette-to-Code"** pipeline. API connection to government gazettes to auto-update rules when laws change.
+> **This is not a model upgrade. It is an architectural refinement of the governance engine.**
+
+### 6.1 Alignment-Oriented Enforcement
+Move from static keyword triggers toward structured policy evaluation.
+Instead of matching isolated phrases, the engine evaluates:
+*   Regulatory exposure (SEBI / Medical / DPDP)
+*   Human safety risk
+*   Deception risk
+*   Confidence level of compliance decision
+
+*Rules remain deterministic, but decisions become principle-driven.*
+
+### 6.2 Claim-Level Evaluation
+Prompts are decomposed into atomic claims before enforcement.
+For each claim:
+1.  Identify regulatory implications
+2.  Detect unverifiable or time-sensitive assertions
+3.  Assign structured confidence scores
+
+*This reduces false negatives in nuanced advisory queries.*
+
+### 6.3 Stability & Robustness Verification
+To prevent inconsistent governance:
+*   Re-evaluate paraphrased forms of the same query
+*   Detect decision flips
+*   **Downgrade unstable decisions to ABSTAIN**
+
+*Governance must remain consistent across phrasing variations.*
+
+### 6.4 Calibrated Abstention
+Instead of hard blocking low-confidence cases:
+*   Introduce structured **ABSTAIN** responses
+*   Provide regulatory-safe explanations
+*   Attach confidence signals to decisions
+
+*This reduces unnecessary blocking while preserving compliance integrity.*
+
+### ⚙️ Engineering Constraints
+V3 maintains:
+*   **Sub-100ms** governance latency
+*   **Deterministic decision traces** for audit
+*   No LLM weight modification
+*   Model-agnostic integration
 
 ---
 
@@ -246,4 +282,5 @@ Result: Compliance maintained ✓
 *AI for Bharat Hackathon 2026*
 *Indigenous AI Governance Infrastructure*
 *License: MIT Open Source (Post-Hackathon)*
+
 
