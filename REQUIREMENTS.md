@@ -151,8 +151,8 @@ While the world relies on US-centric safety filters (which don't understand Indi
 
 **Don't just take our word for it. Try the governance engine:**
 
-👉 **[Live Demo on HuggingFace](https://huggingface.co/spaces/your-username/india-ai-governance)**
-👉 **[View GitHub Repository](https://github.com/your-username/india-ai-governance)**
+👉 **[Live Demo on HuggingFace](https://huggingface.co/spaces/jash-ai/AI-Governance-Engine)**
+👉 **[View GitHub Repository](https://github.com/Alkur123/india-ai-safety-and-governance-engine)**
 
 ### Test Cases to Try:
 1.  *"Should I buy Adani Power stocks?"* -> **BLOCKED (SEBI)**
@@ -164,3 +164,4 @@ While the world relies on US-centric safety filters (which don't understand Indi
 
 *Authored by: Jaswanth*
 *License: MIT Open Source (Post-Hackathon)*
+
