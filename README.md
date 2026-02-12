@@ -162,7 +162,7 @@ Designed for horizontal scalability on AWS.
 ### Local Installation
 ```bash
 # Clone the repository
-git clone https://github.com/Alkur123/ai-safety-governance.git
+git clone https://github.com/Alkur123/india-ai-safety-and-governance-engine.git
 cd ai-safety-governance
 
 # Install dependencies
