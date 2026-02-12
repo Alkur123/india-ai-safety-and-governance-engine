@@ -13,7 +13,7 @@
 ## � Project Documentation (Direct Sources)
 For deep dives into the architecture, validation, and model specifications, please refer to the core documentation files:
 
-*   [** Requirements & Validation (REQUIREMENTS.md)**](REQUIREMENTS.md) - Full breakdown of validation metrics, test cases, and compliance mapping.
+*   [**Requirements & Validation (REQUIREMENTS.md)**](REQUIREMENTS.md) - Full breakdown of validation metrics, test cases, and compliance mapping.
 *   [**🏗️ System Design & Architecture (DESIGN.md)**](DESIGN.md) - Detailed technical architecture, future roadmap, and module specifications.
 *   [** Model Card (MODEL_CARD.md)**](MODEL_CARD.md) - Ethical considerations, limitations, and intended use cases.
 
@@ -162,7 +162,7 @@ Designed for horizontal scalability on AWS.
 ### Local Installation
 ```bash
 # Clone the repository
-git clone https://github.com/Alkur123/india-ai-safety-and-governance-engine.git
+git clone https://github.com/yourusername/ai-safety-governance.git
 cd ai-safety-governance
 
 # Install dependencies
@@ -174,11 +174,18 @@ python main.py
 
 ---
 
-## 8️⃣ Roadmap (V3)
-*   **Alignment-oriented governance**
-*   **Claim-level analysis**
-*   **Stability checks**
-*   **Calibrated abstention**
+## 8️⃣ Roadmap (V3 – Alignment-Oriented Governance)
+
+V3 evolves the deterministic rule engine into a structured evaluation layer while preserving auditability and latency constraints.
+
+**Planned architectural refinements:**
+
+*   **Alignment-Oriented Enforcement:** Transition from keyword triggers to structured policy evaluation grounded in regulatory principles.
+*   **Claim-Level Analysis:** Decompose prompts into atomic claims before enforcement to reduce missed advisory violations.
+*   **Stability Verification:** Detect decision inconsistency across paraphrased inputs and downgrade unstable outcomes to ABSTAIN.
+*   **Calibrated Abstention:** Introduce confidence-scored refusal logic instead of binary block/allow decisions.
+
+*Engineering constraints remain unchanged: Sub-100ms governance overhead, deterministic audit traces, model-agnostic integration.*
 
 ---
 
@@ -187,5 +194,3 @@ python main.py
 *AI Governance & Safety Systems Engineer*
 
 *Built for the AWS AI for Bharat Hackathon 2026. Empowering responsible AI adoption in India.*
-
-
