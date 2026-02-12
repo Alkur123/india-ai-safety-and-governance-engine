@@ -1,4 +1,4 @@
-# 🇮🇳 India AI Governance Engine (V2)
+#  India AI Governance Engine (V2)
 **Inference-Time AI Compliance Architecture**
 
 > *Submitted for AI for Bharat Hackathon 2025* | *Theme: Responsible AI for India*
@@ -112,7 +112,7 @@ Classifies user queries into specific regulatory domains:
 ### 4.3 Attack Vector Detection
 **Purpose:** Increase risk score for suspicious intent.
 *   **Detects:** Prompt injection, Obfuscation (leetspeak), Urgency manipulation, Rule bypass attempts.
-*   **Performance:** ~70% detection rate on known patterns.
+*   **Performance:** Baseline detection on known prompt-injection patterns. Expanded adversarial evaluation planned in V3.
 
 ### 4.4 Risk Scoring Engine
 Calculates a **Risk Score (0.0 – 1.0)** based on:
@@ -142,8 +142,8 @@ Applies specific Indian regulations (SEBI, Medical Council, DPDP, Bar Council).
 
 V2 includes a governance evaluation suite measuring **accuracy of governance**, not generation quality.
 
-### Current Metrics (50-query evaluation set)
-*   **Precision:** 0.83
+### Current Metrics (69-query evaluation set)
+*   **Precision:** 0.91
 *   **Recall:** 0.91 (High violation detection rate)
 
 **Category Breakdown:**
@@ -178,6 +178,18 @@ V2 is containerized (**Docker**) and deployable via **AWS ECS**.
     *   **PostgreSQL** for audit logging
     *   **Redis** for caching
     *   Horizontal scaling enabled
+
+**Deployment Flow:**
+```mermaid
+graph LR
+    User --> API[API Gateway]
+    API --> Engine[Governance Engine]
+    Engine -->|Compliant| LLM[LLM]
+    Engine -->|Violation| Block[Block Response]
+    Engine -.-> DB[(PostgreSQL Logs)]
+    LLM --> User
+```
+
 *   **Model-Agnostic:** Can wrap GPT-4, Claude, Gemini, LLaMA, Mistral, or any future LLM.
 
 ---
@@ -252,6 +264,13 @@ Replace static rules with a "Judge Model" evaluating: *"Does this request violat
 *   Integrate with GPT-style APIs, Open-source models (LLaMA, Mistral), and SLMs.
 *   Governance remains independent of model internals.
 
+### V3 Workflow Example
+**User Query:** "Should I invest in XYZ stock?"
+1.  **Decompose:** "Investing in XYZ will yield returns."
+2.  **Evaluate Principle:** "Is this personalized financial advice?" (SEBI Regulation)
+3.  **Estimate Uncertainty:** High confidence of violation.
+4.  **Decision:** **ABSTAIN** with regulatory explanation.
+
 ---
 
 ## 11. 💡 What Makes This Different
@@ -298,6 +317,6 @@ V2 is a functional, deployable governance layer ready for integration today.
 
 ### Author
 **A. Jaswanth**
-*AI Governance & Safety Systems Engineer*
+*AI Governance & Safety*
 
-*Built in India. Designed for Indian regulatory environments. Focused on making AI helpful, harmless, and honest.*
+
