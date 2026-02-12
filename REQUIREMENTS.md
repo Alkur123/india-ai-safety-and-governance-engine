@@ -139,7 +139,7 @@ We are building this engine to evolve alongside Indian AI regulations.
 
 ---
 
-## 7. 🇮🇳 National Importance
+## 7.  National Importance
 
 **"Atmanirbhar Bharat" in AI Governance**
 
@@ -246,3 +246,4 @@ Result: Compliance maintained ✓
 *AI for Bharat Hackathon 2026*
 *Indigenous AI Governance Infrastructure*
 *License: MIT Open Source (Post-Hackathon)*
+
