@@ -42,13 +42,13 @@ We flipped the standard AI model. Instead of "Generate → Check," we use **"Che
 
 ### 2.1 How It Works (The 5-Layer Shield)
 
-``````mermaid
+```mermaid
 graph TD
     A[User Query] --> B{Layer 1: PII Detection}
     B -- PII Detected --> C[Redact Aadhaar/PAN]
     C --> D{Layer 2: Intent Classification}
     B -- Clean --> D
-    D --> E{Is Financial/Medical Advice?}
+    D --> E[Is Financial/Medical Advice?]
     E -- Yes --> F{Layer 3: Regulatory Check}
     E -- No --> G[Safe General Query]
     F -- Violation --> H[BLOCK REQUEST]
@@ -244,12 +244,3 @@ Result: Compliance maintained ✓
 
 *Authored by: Jaswanth*
 *License: MIT Open Source (Post-Hackathon)*
-
-
-
-
-
-
-
-
-
