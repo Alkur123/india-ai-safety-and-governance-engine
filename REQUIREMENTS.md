@@ -13,7 +13,7 @@
 
 **The Problem:** Despite massive demand, **500+ Indian banks, 70,000+ hospitals, and government departments** cannot deploy global AI models (ChatGPT, Claude, Gemini). Why? Because these models violate critical Indian regulations (SEBI, Indian Medical Council Act, DPDP Act) within minutes of deployment.
 
-**The Solution:** **India AI Governance Engine** — a purpose-built, inference-time governance layer that enforces regulatory compliance **BEFORE** AI generates a single word. It acts as a digital compliance officer that sits between the user and any LLM.
+**The Solution:** **India AI Governance Engine** — a purpose-built, inference-time governance layer that enforces regulatory compliance **BEFORE** AI generates a single word. Unlike global AI safety filters, this engine is built specifically for Indian regulatory compliance at inference-time. It acts as a digital compliance officer that sits between the user and any LLM.
 
 **The Impact:** India’s regulated sectors (healthcare, fintech, legal tech) represent a rapidly expanding AI deployment market where governance infrastructure is critical. Designed to reduce regulatory exposure through structured policy enforcement and audit logging.
 
@@ -41,23 +41,18 @@ Most global LLM deployments are not optimized for Indian regulatory and PII stan
 We flipped the standard AI model. Instead of "Generate → Check," we use **"Check → Block/Allow → Generate."**
 
 ### 2.1 How It Works (The 5-Layer Shield)
+
 ```mermaid
 graph TD
-    A[User Query] --> B[Layer 1: PII Detection]
-
-    B -->|PII Detected| C[Redact Aadhaar/PAN]
-    C --> D[Layer 2: Intent Classification]
-
-    B -->|Clean| D
-
-    D --> E{Is Financial/Medical Advice?}
-
-    E -->|Yes| F[Layer 3: Regulatory Check]
-    E -->|No| G[Safe General Query]
-
-    F -->|Violation| H[BLOCK REQUEST]
-    F -->|Compliant| I[ALLOW REQUEST]
-
+    A[User Query] --> B{Layer 1: PII Detection}
+    B -- PII Detected --> C[Redact Aadhaar/PAN]
+    C --> D{Layer 2: Intent Classification}
+    B -- Clean --> D
+    D --> E[Is Financial/Medical Advice?]
+    E -- Yes --> F{Layer 3: Regulatory Check}
+    E -- No --> G[Safe General Query]
+    F -- Violation --> H[BLOCK REQUEST]
+    F -- Compliant --> I[ALLOW REQUEST]
     I --> J[LLM Generation]
     G --> J
 ```
@@ -171,7 +166,7 @@ While the world relies on US-centric safety filters (which don't understand Indi
 
 ### 9.1 Live Demo
 
-**Production Deployment:**
+**Live Prototype Deployment (HuggingFace Space):**
 🔗 https://huggingface.co/spaces/jash-ai/AI-Governance-Engine
 
 **Status:** Running (as of February 13, 2025)
@@ -247,6 +242,7 @@ Result: Compliance maintained ✓
 
 ---
 
-*Authored by: Jaswanth*
+**Built by Jaswanth**
+*AI for Bharat Hackathon 2026*
+*Indigenous AI Governance Infrastructure*
 *License: MIT Open Source (Post-Hackathon)*
-
