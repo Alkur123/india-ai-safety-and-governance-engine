@@ -329,7 +329,7 @@ Hosted on **AWS EC2 (ap-south-1, Mumbai)** with **Dockerized FastAPI service**.
 ✅ **Sub-50ms Latency:** Real-time governance without user experience degradation
 
 ### Social Impact
-✅ **Digital India Enabler:** Unlocks AI adoption for 500+ banks, 70,000+ hospitals
+✅ **Digital India Enabler:** Designed for integration across regulated sectors including banking and healthcare.
 ✅ **Regulatory Pioneer:** First India-specific AI governance framework
 ✅ **Open Source Ready:** Apache 2.0 license for community contribution
 ✅ **Scalable Solution:** From startups to government-scale deployments
@@ -351,6 +351,7 @@ Hosted on **AWS EC2 (ap-south-1, Mumbai)** with **Dockerized FastAPI service**.
 **Contact:** jaswanthalkur@gmail.com
 **Demo:** https://huggingface.co/spaces/jash-ai/AI-Governance-Engine
 **AWS Region:** ap-south-1 (Mumbai) 
+
 
 
 
