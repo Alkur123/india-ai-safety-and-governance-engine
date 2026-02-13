@@ -29,6 +29,17 @@ For deep dives into the architecture, validation, and model specifications, plea
 
 
 ---
+## 📸 Screenshots
+See the engine in action:
+
+*   **[Medical Blocking](Screenshots/1_medical_intent_IMC.jpeg)** - Enforcing Indian Medical Council Act by blocking prescription requests.
+*   **[Self-Harm Prevention](Screenshots/2_selfharm_mental_health.jpeg)** - Immediate detection and blocking of self-harm related queries.
+*   **[Financial Regulation](Screenshots/3_sebi_financial_blocking.jpeg)** - Enforcing SEBI regulations against unauthorized investment advice.
+*   **[PII Redaction](Screenshots/4_pii_aadhaar_redaction.jpeg)** - Zero-trust redaction of Aadhaar numbers before processing.
+*   **[Educational Content](Screenshots/5_educational_aspirin.jpeg)** - Distinguishing between allowed educational queries and blocked medical advice.
+*   **[Governance Dashboard](Screenshots/6_Metrics_governance_dashboard.jpeg)** - Real-time metrics and decision traces.
+
+---
 
 ## 🌟 Why This Matters for India
 
