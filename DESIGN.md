@@ -308,7 +308,7 @@ V2 is a functional, deployable governance layer ready for integration today.
 *   **HuggingFace Space:** [AI Governance Engine Demo](https://huggingface.co/spaces/jash-ai/AI-Governance-Engine)
 
 ### Source Code Repository
-*   **GitHub:** [India AI Governance Repo](https://github.com/your-username/india-ai-governance)
+*   **GitHub:** [India AI Governance Repo](https://github.com/Alkur123/india-ai-safety-and-governance-engine)
 
 ### Deployment
 
@@ -351,6 +351,7 @@ Hosted on **AWS EC2 (ap-south-1, Mumbai)** with **Dockerized FastAPI service**.
 **Contact:** jaswanthalkur@gmail.com
 **Demo:** https://huggingface.co/spaces/jash-ai/AI-Governance-Engine
 **AWS Region:** ap-south-1 (Mumbai) 
+
 
 
 
