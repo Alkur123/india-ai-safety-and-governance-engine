@@ -1,9 +1,9 @@
 #  India AI Governance Engine (V2)
 **Deterministic Governance Middleware for Regulated AI Systems in India**
 
-> *Submitted for AI for Bharat Hackathon 2025*
+> *Submitted for AI for Bharat Hackathon 2026*
 > 
-> **Powered by Hack2Skill | Powered by AWS**
+> ** Hack2Skill | Powered by AWS**
 > 
 > **🏆 AI Safety Infrastructure | Built on AWS Cloud | Empowering Digital India**
 
@@ -255,7 +255,7 @@ Built for the **AI for Bharat Hackathon 2025**. Empowering responsible AI adopti
 
 **Powered by:** Hack2Skill | AWS
 **Theme:** Responsible AI for India
-**Vision:** Making AI Safe, Compliant, and Accessible for Every Indian 🇮🇳
+**Vision:** Making AI Safe, Compliant, and Accessible for Every Indian
 
 ---
 
