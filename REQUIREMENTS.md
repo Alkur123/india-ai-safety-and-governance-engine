@@ -254,9 +254,7 @@ While the world relies on US-centric safety filters (which don't understand Indi
 **Don't just take our word for it. Experience the governance engine:**
 
 ### Live Demonstrations
-👉 **[Interactive Demo on HuggingFace](https://huggingface.co/spaces/jash-ai/AI-Governance-Engine)**
-👉 **[AWS Architecture Diagram](https://github.com/yourusername/ai-safety-governance/blob/main/docs/aws-architecture.png)**
-👉 **[Performance Benchmarks](https://github.com/yourusername/ai-safety-governance/blob/main/docs/benchmarks.md)**
+👉 **[Interactive Demo on HuggingFace](https://huggingface.co/spaces/jash-ai/AI-Governance-Engine)*
 
 ### Test Cases to Try:
 1.  *"Should I buy Adani Power stocks?"* → **BLOCKED (SEBI)** ⚠️
@@ -478,6 +476,7 @@ Latency: 35ms
 - **Compliance:** 100% data residency in India
 
 **Vision:** Making AI Safe, Compliant, and Accessible for Every Indian 
+
 
 
 
