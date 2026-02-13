@@ -1,13 +1,16 @@
 #  India AI Governance Engine (V2)
 **Inference-Time AI Compliance Architecture**
 
-> *Submitted for AWS AI for Bharat Hackathon 2026* | *Theme: Responsible AI for India*
+> *Submitted for AI for Bharat Hackathon 2026*
 > 
-> **🏆 Building Digital India's AI Safety Infrastructure | Powered by AWS Cloud**
+> **Powered by Hack2Skill | Powered by AWS**
+> 
+> **🏆 Building Digital India's AI Safety Infrastructure**
 
 [![Status](https://img.shields.io/badge/Status-Prototype-success?style=for-the-badge)](https://huggingface.co/spaces/jash-ai/AI-Governance-Engine)
 [![Compliance](https://img.shields.io/badge/Compliance-SEBI_%7C_Medical_Council_%7C_DPDP-blue?style=for-the-badge&logo=policys)](https://huggingface.co/spaces/jash-ai/AI-Governance-Engine)
 [![Deployment](https://img.shields.io/badge/Deployed_on-AWS-orange?style=for-the-badge&logo=amazon-aws)](https://huggingface.co/spaces/jash-ai/AI-Governance-Engine)
+[![Hackathon](https://img.shields.io/badge/Hackathon-AI_for_Bharat-green?style=for-the-badge)](https://hack2skill.com/)
 
 ---
 
@@ -33,19 +36,12 @@ This architecture is **model-agnostic** and can wrap around any LLM (GPT-4, LLaM
 
 ## 🌟 What Makes This AWS-Native Solution Unique
 
-### Cloud-Native Governance at Scale
-- **AWS Lambda Integration:** Serverless architecture enabling 10,000+ concurrent governance checks
-- **Amazon DynamoDB:** Sub-10ms audit log writes with automatic scaling
-- **AWS CloudWatch:** Real-time compliance monitoring dashboards
-- **Amazon S3 + Glacier:** 7-year audit retention for regulatory compliance (SEBI/RBI requirements)
-- **AWS KMS:** Hardware-backed encryption for PII redaction keys
-- **Amazon API Gateway:** Rate limiting and DDoS protection for public deployments
-
-### India-First, Cloud-Optimized Design
-- **Multi-Region Deployment:** Mumbai (ap-south-1) primary with Hyderabad failover
-- **Data Residency:** 100% data processing within Indian AWS regions (DPDP Act compliance)
-- **Cost Efficiency:** 95% cheaper than GPU-based moderation ($0.0002 per request vs $0.004)
-- **Edge Deployment Ready:** Compatible with AWS CloudFront for <20ms latency nationwide
+### Deployment & Design Principles
+- **AWS Hosting:** EC2 instance (ap-south-1, Mumbai) with Dockerized FastAPI service
+- **Data Residency:** 100% data processing within Indian AWS region (DPDP Act compliance)
+- **Regulatory Focus:** Built for SEBI, IMC, DPDP Act, and IPC compliance
+- **PII Protection:** Specialized detection for Aadhaar, PAN, and Indian identifiers
+- **Deterministic Logic:** Rule-based approach for audit-ready decisions
 
 ---
 
@@ -170,8 +166,8 @@ Applies specific Indian regulations (SEBI, Medical Council, DPDP, Bar Council).
 
 V2 includes a governance evaluation suite measuring **accuracy of governance**, not generation quality.
 
-### Current Metrics (50-query evaluation set)
-*   **Precision:** 0.83
+### Current Metrics (69-query evaluation set)
+*   **Precision:** 0.91
 *   **Recall:** 0.91 (High violation detection rate)
 
 **Category Breakdown:**
@@ -197,64 +193,18 @@ Designed for real-time integration with production systems.
 
 ---
 
-## 7. ☁️ AWS-Native Deployment Architecture
+## 7. ☁️ AWS Deployment
 
-### Production-Ready AWS Infrastructure
+Hosted on **AWS EC2 (ap-south-1, Mumbai)** with **Dockerized FastAPI service**.
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    AWS Cloud (ap-south-1)                    │
-├─────────────────────────────────────────────────────────────┤
-│                                                               │
-│  ┌──────────────┐      ┌─────────────────┐                 │
-│  │ API Gateway  │─────▶│  Lambda Layer   │                 │
-│  │ (Rate Limit) │      │ (Governance)    │                 │
-│  └──────────────┘      └────────┬────────┘                 │
-│                                  │                           │
-│         ┌────────────────────────┼────────────────┐         │
-│         ▼                        ▼                ▼         │
-│  ┌─────────────┐      ┌──────────────┐   ┌──────────┐     │
-│  │  DynamoDB   │      │ ElastiCache  │   │   KMS    │     │
-│  │ (Audit Log) │      │   (Redis)    │   │(Encrypt) │     │
-│  └─────────────┘      └──────────────┘   └──────────┘     │
-│         │                                                    │
-│         ▼                                                    │
-│  ┌─────────────┐      ┌──────────────┐                     │
-│  │  S3 Glacier │      │  CloudWatch  │                     │
-│  │ (Archive)   │      │ (Monitoring) │                     │
-│  └─────────────┘      └──────────────┘                     │
-└─────────────────────────────────────────────────────────────┘
-```
-
-### Deployment Specifications
-
-**Compute Layer:**
-- **AWS Lambda:** Python 3.11 runtime, 512MB memory, 3-second timeout
-- **Concurrency:** 1,000 reserved + 10,000 burst capacity
-- **Cold Start:** <200ms with Lambda SnapStart enabled
-
-**Data Layer:**
-- **DynamoDB:** On-demand billing, point-in-time recovery enabled
-- **ElastiCache (Redis):** r6g.large nodes for pattern caching
-- **S3 Intelligent-Tiering:** Automatic cost optimization for audit logs
-
-**Security & Compliance:**
-- **VPC Isolation:** Private subnets for Lambda execution
-- **AWS WAF:** SQL injection and XSS protection
-- **AWS Config:** Continuous compliance monitoring
-- **AWS CloudTrail:** API call auditing for regulatory requirements
-
-**Cost Optimization:**
-- **Estimated Cost:** ₹15,000/month for 10M requests (~$0.0002 per request)
-- **Savings vs GPU:** 95% reduction compared to LLM-based moderation
-- **Auto-Scaling:** Pay only for actual usage with serverless architecture
+**Infrastructure:**
+- EC2 instance running Docker container
+- FastAPI application for governance logic
+- Possibly Nginx for reverse proxy
+- Local logging with optional S3 backups
 
 **Model-Agnostic Integration:**
-Can wrap any LLM provider:
-- Amazon Bedrock (Claude, Llama)
-- OpenAI API (GPT-4)
-- Google Vertex AI (Gemini)
-- Self-hosted models (Mistral, Falcon)
+Can wrap any LLM provider (Amazon Bedrock, OpenAI, Google Vertex AI, self-hosted models)
 
 ---
 
@@ -360,11 +310,9 @@ V2 is a functional, deployable governance layer ready for integration today.
 ### Source Code Repository
 *   **GitHub:** [India AI Governance Repo](https://github.com/your-username/india-ai-governance)
 
-### Deployment Environment
-*   **Container:** Dockerized FastAPI microservice
-*   **Hosting:** AWS ECS
-*   **Database:** PostgreSQL (Audit Logs), Redis (Caching)
-*   **Scalability:** Horizontal scaling enabled (Scales to 400+ req/sec)
+### Deployment
+
+Hosted on **AWS EC2 (ap-south-1, Mumbai)** with **Dockerized FastAPI service**.
 
 ### Measured Governance Overhead
 *   **~45ms** average inference-time latency
@@ -386,17 +334,19 @@ V2 is a functional, deployable governance layer ready for integration today.
 ✅ **Open Source Ready:** Apache 2.0 license for community contribution
 ✅ **Scalable Solution:** From startups to government-scale deployments
 
-### AWS Service Integration
-✅ **10+ AWS Services:** Lambda, DynamoDB, S3, CloudWatch, KMS, API Gateway, WAF, Config, CloudTrail, ElastiCache
-✅ **Well-Architected:** Follows AWS best practices for security, reliability, performance
-✅ **Cloud-Native:** Built for AWS from day one, not retrofitted
+### AWS Cloud Integration
+✅ **EC2 Deployment:** Hosted on AWS infrastructure in India region
+✅ **Docker Containerization:** Portable and reproducible deployment
+✅ **Scalability Design:** Architecture ready for load balancing and auto-scaling
 
 ---
 
 ### Author
 **A. Jaswanth**
 *AI Governance & Safety Engineer*
-*AWS AI for Bharat Hackathon 2025*
+
+**Hackathon:** AI for Bharat Hackathon 2026
+**Powered by:** Hack2Skill | AWS
 
 **Contact:** jaswanthalkur@gmail.com
 **Demo:** https://huggingface.co/spaces/jash-ai/AI-Governance-Engine
