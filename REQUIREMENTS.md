@@ -213,7 +213,7 @@ V3 maintains:
 
 ---
 
-## 7. 🇮🇳 National Importance & Digital India Vision
+## 7.  National Importance & Digital India Vision
 
 **"Atmanirbhar Bharat" in AI Governance**
 
@@ -404,7 +404,7 @@ Latency: 35ms
 
 **Built by A. Jaswanth**
 
-**Hackathon:** AI for Bharat Hackathon 2025
+**Hackathon:** AI for Bharat Hackathon 2026
 **Powered by:** Hack2Skill | AWS
 **Theme:** Responsible AI for India
 
@@ -439,6 +439,7 @@ Latency: 35ms
 - **Compliance:** 100% data residency in India
 
 **Vision:** Making AI Safe, Compliant, and Accessible for Every Indian 
+
 
 
 
