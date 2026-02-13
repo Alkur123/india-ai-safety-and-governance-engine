@@ -276,32 +276,6 @@ cd ai-safety-governance
 # Test locally with SAM
 sam local start-api
 
-# Monitor with CloudWatch
-aws cloudwatch get-dashboard --dashboard-name GovernanceMetrics
-```
-
-### Integration Example (Python)
-```python
-import boto3
-
-# Initialize Lambda client
-lambda_client = boto3.client('lambda', region_name='ap-south-1')
-
-# Invoke governance engine
-response = lambda_client.invoke(
-    FunctionName='IndiaAIGovernanceEngine',
-    InvocationType='RequestResponse',
-    Payload='{"query": "Should I invest in crypto?"}'
-)
-
-# Parse result
-result = json.loads(response['Payload'].read())
-print(f"Decision: {result['decision']}")  # BLOCKED
-print(f"Regulation: {result['regulation']}")  # SEBI
-```
-
----
-
 ## 9. Validation Results
 
 ### 9.1 Live Demo & AWS Deployment
@@ -476,6 +450,7 @@ Latency: 35ms
 - **Compliance:** 100% data residency in India
 
 **Vision:** Making AI Safe, Compliant, and Accessible for Every Indian 
+
 
 
 
