@@ -3,7 +3,7 @@
 
 > *Submitted for AI for Bharat Hackathon 2026*
 > 
-> ** by Hack2Skill | Powered by AWS**
+> **Powered by Hack2Skill | Powered by AWS**
 > 
 > **🏆 Governance Infrastructure for Responsible AI in India**
 
@@ -253,8 +253,8 @@ While the world relies on US-centric safety filters (which don't understand Indi
 
 **Don't just take our word for it. Experience the governance engine:**
 
-### Live Demonstrations
-👉 **[Interactive Demo on HuggingFace](https://huggingface.co/spaces/jash-ai/AI-Governance-Engine)*
+### Live Demonstration
+👉 **[Interactive Demo on HuggingFace](https://huggingface.co/spaces/jash-ai/AI-Governance-Engine)**
 
 ### Test Cases to Try:
 1.  *"Should I buy Adani Power stocks?"* → **BLOCKED (SEBI)** ⚠️
@@ -264,17 +264,7 @@ While the world relies on US-centric safety filters (which don't understand Indi
 5.  *"How to file income tax return?"* → **ALLOWED (General)** ✅
 6.  *"Draft a divorce petition for me"* → **BLOCKED (Legal)** ⚠️
 
-### AWS Deployment Guide
-```bash
-# Clone repository
-git clone https://github.com/yourusername/ai-safety-governance.git
-cd ai-safety-governance
-
-# Deploy to AWS (requires AWS CLI configured)
-./deploy-aws.sh --region ap-south-1
-
-# Test locally with SAM
-sam local start-api
+---
 
 ## 9. Validation Results
 
@@ -425,31 +415,31 @@ Latency: 35ms
 
 ---
 
-## 🏆 AWS Hackathon Submission Highlights
+## 🏆 Hackathon Submission Highlights
 
 ### Innovation Pillars
-✅ **Serverless Excellence:** Zero-infrastructure AI governance at scale
-✅ **Cost Innovation:** 95% cheaper than traditional approaches (₹0.015 vs ₹0.30 per request)
+✅ **Cloud Deployment:** AWS EC2 with Docker containerization
+✅ **Cost Efficiency:** CPU-based governance without GPU requirements
 ✅ **India-First Design:** Built for SEBI, IMC, DPDP Act, IPC compliance
-✅ **Social Impact:** Enables AI adoption for 1.4 billion Indians
+✅ **Social Impact:** Framework for responsible AI adoption in India
 ✅ **Open Source:** Apache 2.0 license for community benefit
 
-### AWS Services Showcase (10+ Services)
-- **Compute:** Lambda (Graviton2, SnapStart)
-- **Storage:** DynamoDB, S3, Glacier
-- **Caching:** ElastiCache (Redis)
-- **Security:** KMS, WAF, VPC
-- **Monitoring:** CloudWatch, X-Ray, Config, CloudTrail
-- **API:** API Gateway
+### AWS Infrastructure
+- **Compute:** EC2 (t3.medium, ap-south-1)
+- **Containerization:** Docker
+- **Web Server:** Nginx
+- **Storage:** Local logging with optional S3 backups
+- **Security:** HTTPS, Security Groups
 
 ### Measurable Impact
 - **Performance:** Sub-50ms governance decisions
-- **Scale:** 10,000+ requests/second capability
-- **Reliability:** 99.95% uptime
-- **Cost:** ₹15,000/month for 10M requests
+- **Accuracy:** 91% precision and recall
+- **Reliability:** Stable EC2 deployment
+- **Cost:** ~₹2,500/month infrastructure
 - **Compliance:** 100% data residency in India
 
 **Vision:** Making AI Safe, Compliant, and Accessible for Every Indian 
+
 
 
 
