@@ -15,7 +15,7 @@
 
 ---
 
-## � Project Documentation (Direct Sources)
+##  Project Documentation (Direct Sources)
 For deep dives into the architecture, validation, and model specifications, please refer to the core documentation files:
 
 *   [**Requirements & Validation (REQUIREMENTS.md)**](REQUIREMENTS.md) - Full breakdown of validation metrics, test cases, and compliance mapping.
