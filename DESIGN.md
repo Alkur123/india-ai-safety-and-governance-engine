@@ -1,7 +1,7 @@
 #  India AI Governance Engine (V2)
 **Inference-Time AI Compliance Architecture**
 
-> *Submitted for AWS AI for Bharat Hackathon 2025* | *Theme: Responsible AI for India*
+> *Submitted for AWS AI for Bharat Hackathon 2026* | *Theme: Responsible AI for India*
 > 
 > **🏆 Building Digital India's AI Safety Infrastructure | Powered by AWS Cloud**
 
@@ -401,5 +401,6 @@ V2 is a functional, deployable governance layer ready for integration today.
 **Contact:** jaswanthalkur@gmail.com
 **Demo:** https://huggingface.co/spaces/jash-ai/AI-Governance-Engine
 **AWS Region:** ap-south-1 (Mumbai) 
+
 
 
