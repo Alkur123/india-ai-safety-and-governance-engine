@@ -3,7 +3,7 @@
 
 > *Submitted for AI for Bharat Hackathon 2026*
 > 
-> ** Hack2Skill | Powered by AWS**
+> Hack2Skill | Powered by AWS
 > 
 > **🏆 AI Safety Infrastructure | Built on AWS Cloud | Empowering Digital India**
 
