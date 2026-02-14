@@ -72,7 +72,7 @@ In India, integrating Large Language Models (LLMs) into public-sector and enterp
 We treat governance as a separate, distinct layer from intelligence.
 
 *   ✅ **Deterministic:** Same input = Same safety decision. No probabilistic guessing for compliance.
-*   🇮🇳 **India-Aware:** Built-in recognition of Indian regulatory frameworks (IMC, BCI, SEBI, IPC).
+*   **India-Aware:** Built-in recognition of Indian regulatory frameworks (IMC, BCI, SEBI, IPC).
 *   🔍 **Auditable:** Every decision produces an immutable audit log, not just a rejected prompt.
 
 ---
