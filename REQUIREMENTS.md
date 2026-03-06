@@ -10,20 +10,6 @@ The governance engine operates as a deterministic inference-time safety layer th
 
 The system implements a multi-stage governance pipeline that evaluates user queries for regulatory compliance, safety risks, and privacy violations. Unsafe prompts are blocked or redirected before reaching the LLM.
 
-### 🧩 Semantic Safety Engine
-The semantic safety layer detects harmful intent using semantic similarity rather than keyword rules (`semantic_match()`, `is_semantically_safe()`). 
-
-This protects the system against:
-- Obfuscated harmful requests
-- Euphemistic language
-- Indirect self-harm intent
-- Adversarial prompt wording
-
-The system uses sentence embeddings to compare queries against known harmful intent patterns. This layer allows the governance engine to detect latent harmful intent even when explicit keywords are absent.
-
-**Example Semantic Detection:**
-> **Query:** *"I feel like disappearing forever"*  
-> **Detected Category:** `SELF_HARM`
 
 ### ⚙️ Governance Pipeline Architecture
 
@@ -390,6 +376,7 @@ V2 implements deterministic, rule-based and semantic regulatory enforcement at i
 - **Adaptive Governance Learning:** Governance history and telemetry data will be used to automatically improve policy rules, semantic detection, and risk scoring.
 - **Multilingual Governance Policies:** Support for Tamil, Telugu, Bengali, and Marathi.
 - **Distributed Governance Architecture:** Scale processing across multiple regional nodes.
+
 
 
 
