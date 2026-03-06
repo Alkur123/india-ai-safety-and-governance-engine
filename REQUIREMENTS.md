@@ -1,4 +1,4 @@
-# <img src="https://flagcdn.com/48x36/in.png" width="36" height="27" alt="India Flag" style="vertical-align: middle;"/> India AI Governance Engine  — Requirements
+# <img src="https://flagcdn.com/48x36/in.png" width="36" height="27" alt="India Flag" style="vertical-align: middle;"/> India AI Governance Engine (V2) — Requirements
 
 This document outlines the system requirements, software dependencies, infrastructure setup, and evaluation prerequisites required to build, deploy, and run the **India AI Governance Engine**.
 
@@ -9,6 +9,21 @@ The governance engine operates as a deterministic inference-time safety layer th
 ## 1. 🧠 System Overview
 
 The system implements a multi-stage governance pipeline that evaluates user queries for regulatory compliance, safety risks, and privacy violations. Unsafe prompts are blocked or redirected before reaching the LLM.
+
+### 🧩 Semantic Safety Engine
+The semantic safety layer detects harmful intent using semantic similarity rather than keyword rules (`semantic_match()`, `is_semantically_safe()`). 
+
+This protects the system against:
+- Obfuscated harmful requests
+- Euphemistic language
+- Indirect self-harm intent
+- Adversarial prompt wording
+
+The system uses sentence embeddings to compare queries against known harmful intent patterns. This layer allows the governance engine to detect latent harmful intent even when explicit keywords are absent.
+
+**Example Semantic Detection:**
+> **Query:** *"I feel like disappearing forever"*  
+> **Detected Category:** `SELF_HARM`
 
 ### ⚙️ Governance Pipeline Architecture
 
@@ -21,12 +36,18 @@ graph TD
     classDef block fill:#7B241C,stroke:#922B21,stroke-width:2px,color:#fff;
     classDef abstain fill:#B9770E,stroke:#D68910,stroke-width:2px,color:#fff;
     
-    U[👤 User Query]:::user --> P1[1️⃣ PII Detection & Redaction]
-    P1 --> P2[2️⃣ Harm & Attack Detection]
-    P2 --> P3[3️⃣ Intent Classification]
-    P3 --> P4[4️⃣ Governance Risk Engine]
-    P4 --> P5[5️⃣ Session Memory <br/> Multi-turn monitoring]
-    P5 --> P6[6️⃣ Policy Engine <br/> Regulatory enforcement]
+        direction TB
+        P0[0️⃣ Euphemism Expansion]
+        P1[1️⃣ PII Detection & Redaction]
+        P2[2️⃣ Attack Vector Detection]
+        P2a[3️⃣ Semantic Safety Engine]
+        P3[4️⃣ Intent Classification]
+        P4[5️⃣ Governance Risk Engine]
+        P5[6️⃣ Session Memory <br/> Multi-turn monitoring]
+        P6[7️⃣ Policy Engine <br/> Regulatory enforcement]
+        
+        U --> P0
+        P0 --> P1 --> P2 --> P2a --> P3 --> P4 --> P5 --> P6
     
     P6 --> DL{Decision Layer}
     
@@ -340,15 +361,35 @@ The system strictly follows these key governance principles:
 
 ---
 
-## 20. 🔮 Future Extensions (V3 Roadmap)
+## 20. ⚠️ Scope, Limitations & Mitigation
 
-Planned architectural and policy improvements for the upcoming versions:
-- Multilingual governance policies (Tamil, Telugu, Bengali, Marathi)
-- Automated regulatory rule updates
-- Claim-level reasoning and stability verification
-- Distributed governance architecture
+To ensure this system is production-ready today, specific design choices were made that come with trade-offs.
 
+### ⚠️ Current Limitations (V2)
 
+- **Prompt-Level Evaluation:** Prompts are evaluated as a single unit rather than decomposed into structured claims.
+- **Static Policy Mapping:** Governance rules are currently implemented as deterministic mappings rather than dynamically retrieved regulatory knowledge.
+- **Decision Stability:** Slight variations in prompt wording may produce different governance outcomes.
+- **Limited Post-Generation Verification:** The system focuses primarily on pre-generation governance with limited validation of generated responses.
+- **Minimal Human Oversight:** Low-confidence decisions are handled automatically without structured human review.
+- **Limited Automated Learning from Telemetry:** Governance history and decision traces are logged, but they are not yet used to automatically refine policies or detection models.
+
+---
+
+## 21. 🔮 Future Extensions (V3 Roadmap)
+
+V2 implements deterministic, rule-based and semantic regulatory enforcement at inference time. V3 evolves the governance layer toward alignment-oriented decision evaluation.
+
+### 🚀 Planned Improvements (V3)
+
+- **Intent & Claim Decomposition:** Structured prompt decomposition for fine-grained governance evaluation.
+- **Constitutional Retrieval Layer:** Dynamic retrieval of regulatory knowledge and legal precedents using a vector database.
+- **Stability Verification Engine:** Evaluate governance decisions across paraphrased prompts to ensure consistency.
+- **Post-Generation Verification:** Generated responses will be verified before being streamed to users.
+- **Human-in-the-Loop Governance:** Ambiguous or low-confidence cases will be routed to a human review queue.
+- **Adaptive Governance Learning:** Governance history and telemetry data will be used to automatically improve policy rules, semantic detection, and risk scoring.
+- **Multilingual Governance Policies:** Support for Tamil, Telugu, Bengali, and Marathi.
+- **Distributed Governance Architecture:** Scale processing across multiple regional nodes.
 
 
 
