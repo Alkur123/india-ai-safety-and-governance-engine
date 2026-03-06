@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> 🇮🇳 India AI Governance Engine</h1>
+  <h1>  India AI Governance Engine</h1>
   <p><b>Deterministic AI Governance Infrastructure for Regulated Systems</b></p>
   
   [![AWS Deployment](https://img.shields.io/badge/AWS-Live_Deployment-FF9900?logo=amazonaws&logoColor=white)](#aws-deployment)
