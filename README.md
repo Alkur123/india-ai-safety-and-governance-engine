@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> India AI Governance Engine</h1>
+  <h1><img src="https://flagcdn.com/48x36/in.png" width="36" height="27" alt="India Flag" style="vertical-align: middle;"/> India AI Governance Engine</h1>
   <p><b>Deterministic AI Governance Infrastructure for Regulated Systems</b></p>
   
   [![AWS Deployment](https://img.shields.io/badge/AWS-Live_Deployment-FF9900?logo=amazonaws&logoColor=white)](#aws-deployment)
@@ -16,10 +16,8 @@ Unlike traditional moderation systems that filter outputs *after* generation, th
 
 ## 🔗 Quick Links
 
-| Platform | Version 2.0 | Version 2.5 |
-| :--- | :--- | :--- |
-| **🎥 Hugging Face Spaces** | [Interactive Demo](#) | [Open in Spaces](https://huggingface.co/spaces/jash-ai/ai-governance-bharath) |
-| **☁️ AWS Deployment** | - | [AWS Deployment](http://98.93.62.154:7860) |
+*   **🎥 Hugging Face Spaces:** [Open in Spaces](https://huggingface.co/spaces/jash-ai/ai-governance-bharath)
+*   **☁️ AWS Deployment:** [AWS Deployment](http://98.93.62.154:7860)
 
 ---
 
@@ -45,7 +43,7 @@ India is entering a massive AI adoption phase across **Banking, Healthcare, Lega
 We need indigenous governance infrastructure that understands:
 - 🏛️ **Indian Regulations:** SEBI, IMC, DPDP Act, IPC, Bar Council
 - 🔒 **Indian PII:** Aadhaar, PAN, Voter ID, Indian mobile numbers
-- 🇮🇳 **Indian Context:** Cultural nuances, multilingual challenges, data sovereignty
+- � **Indian Context:** Cultural nuances, multilingual challenges, data sovereignty
 - ⚖️ **Indian Laws:** Compliance with local legal frameworks, not just global standards
 
 ### ⚠️ Key Problems with Current LLM Deployments
@@ -301,4 +299,5 @@ Built for the **AI for Bharat Hackathon 2025**. Empowering responsible AI adopti
 **Vision:** Making AI Safe, Compliant, and Accessible for Every Indian
 
 ---
+
 
