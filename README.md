@@ -25,14 +25,14 @@ Unlike traditional moderation systems that filter outputs *after* generation, th
 
 See the engine in action:
 
-*   **Medical Blocking:** [Image Link] - Enforcing Indian Medical Council Act by blocking prescription requests.
-*   **Self-Harm Prevention:** [Image Link] - Immediate detection and blocking of self-harm related queries.
-*   **Financial Regulation:** [Image Link] - Enforcing SEBI regulations against unauthorized investment advice.
-*   **PII Redaction:** [Image Link] - Zero-trust redaction of Aadhaar numbers before processing.
-*   **Educational Content:** [Image Link] - Distinguishing between allowed educational queries and blocked medical advice.
-*   **Governance Dashboard:** [Image Link] - Real-time metrics and decision traces.
-*   **Support Mode:** [Image Link] - Routing specific high-trust intents to human agent support mode.
-*   **Session Risk (Stateful Escalation):** [Image Link] - Multi-turn conversational penalty tracking and behavioral escalation blocking.
+*   **Medical Blocking:** ![Medical Blocking](1_medical_intent_IMC.jpeg) - Enforcing Indian Medical Council Act by blocking prescription requests.
+*   **Self-Harm Prevention:** ![Self-Harm Prevention](2_selfharm_mental_health.jpeg) - Immediate detection and blocking of self-harm related queries.
+*   **Financial Regulation:** ![Financial Regulation](3_sebi_financial_blocking.jpeg) - Enforcing SEBI regulations against unauthorized investment advice.
+*   **PII Redaction:** ![PII Redaction](4_pii_aadhaar_redaction.jpeg) - Zero-trust redaction of Aadhaar numbers before processing.
+*   **Educational Content:** ![Educational Content](5_educational_aspirin.jpeg) - Distinguishing between allowed educational queries and blocked medical advice.
+*   **Governance Dashboard:** ![Governance Dashboard](6_Metrics_governance_dashboard.jpeg) - Real-time metrics and decision traces.
+*   **Support Mode:** ![Support Mode](7_support_mode.jpeg) - Routing specific high-trust intents to human agent support mode.
+*   **Session Risk (Stateful Escalation):** ![Session Risk](8_session_risk.jpeg) - Multi-turn conversational penalty tracking and behavioral escalation blocking.
 
 ---
 
@@ -76,21 +76,23 @@ graph TD
     
     subgraph Pipeline [Governance Pipeline]
         direction TB
+        P0[0️⃣ Euphemism Expansion]
         P1[1️⃣ PII Detection & Redaction <br/> Aadhaar, PAN, Mobile]
-        P2[2️⃣ Harm & Attack Detection <br/> Jailbreaks, Injection]
-        P3[3️⃣ Intent Classification <br/> Medical, Financial, Legal]
-        P4[4️⃣ Governance Risk Engine <br/> Risk Scoring, Uncertainty]
-        P5[5️⃣ Session Memory <br/> Multi-turn Monitoring]
-        P6[6️⃣ Policy Engine <br/> SEBI, IMC, BCI, IPC]
+        P2[2️⃣ Attack Vector Detection <br/> Jailbreaks, Injection]
+        P2a[3️⃣ Semantic Safety Engine <br/> Sentence similarity tracking]
+        P3[4️⃣ Intent Classification <br/> Medical, Financial, Legal]
+        P4[5️⃣ Governance Risk Engine <br/> Risk Scoring, Uncertainty]
+        P5[6️⃣ Session Memory <br/> Multi-turn Monitoring]
+        P6[7️⃣ Policy Engine <br/> SEBI, IMC, BCI, IPC]
         
-        P1 --> P2 --> P3 --> P4 --> P5 --> P6
+        P0 --> P1 --> P2 --> P2a --> P3 --> P4 --> P5 --> P6
     end
     
     GL --> Pipeline
     Pipeline --> PD{Policy Decision}
     
     PD -->|ALLOW| AL[✅ Send to LLM]:::allow
-    PD -->|BLOCK| BL[🛑 Return Safe Response]:::block
+    PD -->|BLOCK| BL[🛑 Block Request]:::block
     PD -->|ABSTAIN| AB[⚠️ Request More Context]:::abstain
     PD -->|SUPPORT MODE| SM[🎧 Engine Support Mode]:::abstain
     
@@ -102,6 +104,19 @@ graph TD
     AB --> EE
     SM --> EE
 ```
+
+## 📚 Technical Documentation
+
+For deeper technical details about the system architecture, safety models, and governance requirements:
+
+📐 **Governance Architecture Blueprint**  
+→ [DESIGN.md](DESIGN.md)
+
+🧠 **Responsible AI Model Documentation**  
+→ [MODEL_CARD.md](MODEL_CARD.md)
+
+⚙️ **System Requirements & Evaluation Specification**  
+→ [REQUIREMENTS.md](REQUIREMENTS.md)
 
 ---
 
@@ -123,10 +138,25 @@ Detects and redacts sensitive identifiers before they reach external LLM APIs.
 ### 🧠 Intent Classification
 Identifies high-risk categories that map to regulatory policies: Medical advice, Financial advice, Legal guidance, Violence, Self-harm, and Sexual content.
 
-### ⚠️ Harm & Attack Detection
+### ⚠️ Attack Vector Detection
 Detects adversarial prompts including:
 - Jailbreak attempts and prompt injection patterns
 - Obfuscated harmful intent and indirect harmful queries
+
+### 🧩 Semantic Safety Engine
+The semantic safety layer detects harmful intent using semantic similarity rather than keyword rules (`semantic_match()`, `is_semantically_safe()`). 
+
+This protects the system against:
+- Obfuscated harmful requests
+- Euphemistic language
+- Indirect self-harm intent
+- Adversarial prompt wording
+
+The system uses sentence embeddings to compare queries against known harmful intent patterns. This layer allows the governance engine to detect latent harmful intent even when explicit keywords are absent.
+
+**Example Semantic Detection:**
+> **Query:** *"I feel like disappearing forever"*  
+> **Detected Category:** `SELF_HARM`
 
 ### 📊 Governance Risk Engine
 Computes a granular risk score based on prompt semantics, attack indicators, category severity, and user session history. (e.g., `Session Risk: 6.65` | `Uncertainty Score: 0.20`)
@@ -257,16 +287,35 @@ The system strictly aligns with:
 
 ---
 
+## ⚠️ Scope, Limitations & Mitigation
+
+To ensure this system is production-ready today, specific design choices were made that come with trade-offs.
+
+### ⚠️ Current Limitations (V2)
+
+- **Prompt-Level Evaluation:** Prompts are evaluated as a single unit rather than decomposed into structured claims.
+- **Static Policy Mapping:** Governance rules are currently implemented as deterministic mappings rather than dynamically retrieved regulatory knowledge.
+- **Decision Stability:** Slight variations in prompt wording may produce different governance outcomes.
+- **Limited Post-Generation Verification:** The system focuses primarily on pre-generation governance with limited validation of generated responses.
+- **Minimal Human Oversight:** Low-confidence decisions are handled automatically without structured human review.
+- **Limited Automated Learning from Telemetry:** Governance history and decision traces are logged, but they are not yet used to automatically refine policies or detection models.
+
+---
+
 ## 🏗 Project Vision & 🔮 Future Roadmap
 
 This project explores the concept of **AI Governance Infrastructure**. Rather than relying on model alignment alone, the system enforces policy compliance, deterministic safety, explainable decisions, and regulatory auditing *before* AI generation occurs.
 
-### V3 Governance Engine (Planned Improvements)
-- Multilingual policy enforcement (Tamil, Telugu, Bengali, Marathi expansion)
-- Claim-level reasoning and stability verification
-- Calibration-based abstention
-- Automated regulatory policy updates
-- Distributed governance architecture
+### 🚀 Planned Improvements (V3)
+
+- **Intent & Claim Decomposition:** Structured prompt decomposition for fine-grained governance evaluation.
+- **Constitutional Retrieval Layer:** Dynamic retrieval of regulatory knowledge and legal precedents using a vector database.
+- **Stability Verification Engine:** Evaluate governance decisions across paraphrased prompts to ensure consistency.
+- **Post-Generation Verification:** Generated responses will be verified before being streamed to users.
+- **Human-in-the-Loop Governance:** Ambiguous or low-confidence cases will be routed to a human review queue.
+- **Adaptive Governance Learning:** Governance history and telemetry data will be used to automatically improve policy rules, semantic detection, and risk scoring.
+- **Multilingual Governance Policies:** Support for Tamil, Telugu, Bengali, and Marathi.
+- **Distributed Governance Architecture:** Scale processing across multiple regional nodes.
 
 ---
 
@@ -299,5 +348,3 @@ Built for the **AI for Bharat Hackathon 2025**. Empowering responsible AI adopti
 **Vision:** Making AI Safe, Compliant, and Accessible for Every Indian
 
 ---
-
-
