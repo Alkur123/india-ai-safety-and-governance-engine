@@ -10,7 +10,6 @@ The governance engine operates as a deterministic inference-time safety layer th
 
 The system implements a multi-stage governance pipeline that evaluates user queries for regulatory compliance, safety risks, and privacy violations. Unsafe prompts are blocked or redirected before reaching the LLM.
 
-
 ### ⚙️ Governance Pipeline Architecture
 
 ```mermaid
@@ -376,10 +375,6 @@ V2 implements deterministic, rule-based and semantic regulatory enforcement at i
 - **Adaptive Governance Learning:** Governance history and telemetry data will be used to automatically improve policy rules, semantic detection, and risk scoring.
 - **Multilingual Governance Policies:** Support for Tamil, Telugu, Bengali, and Marathi.
 - **Distributed Governance Architecture:** Scale processing across multiple regional nodes.
-
-
-
-
 
 
 
