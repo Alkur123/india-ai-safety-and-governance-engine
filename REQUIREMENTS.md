@@ -222,7 +222,7 @@ Ensure the EC2 Security Group allows inbound traffic on the following required p
 
 Evaluation is performed using a curated dataset designed to test the engine's boundaries.
 
-- **Dataset size:** 69 governance test prompts
+- **Dataset size:** 120 governance test prompts
 - **Testing Categories Include:**
   - Medical advice
   - Financial advice
@@ -375,3 +375,4 @@ V2 implements deterministic, rule-based and semantic regulatory enforcement at i
 - **Adaptive Governance Learning:** Governance history and telemetry data will be used to automatically improve policy rules, semantic detection, and risk scoring.
 - **Multilingual Governance Policies:** Support for Tamil, Telugu, Bengali, and Marathi.
 - **Distributed Governance Architecture:** Scale processing across multiple regional nodes.
+
