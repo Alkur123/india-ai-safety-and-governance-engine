@@ -25,14 +25,14 @@ Unlike traditional moderation systems that filter outputs *after* generation, th
 
 See the engine in action:
 
-*   **Medical Blocking:** ![Medical Blocking](1_medical_intent_IMC.jpeg) - Enforcing Indian Medical Council Act by blocking prescription requests.
-*   **Self-Harm Prevention:** ![Self-Harm Prevention](2_selfharm_mental_health.jpeg) - Immediate detection and blocking of self-harm related queries.
-*   **Financial Regulation:** ![Financial Regulation](3_sebi_financial_blocking.jpeg) - Enforcing SEBI regulations against unauthorized investment advice.
-*   **PII Redaction:** ![PII Redaction](4_pii_aadhaar_redaction.jpeg) - Zero-trust redaction of Aadhaar numbers before processing.
-*   **Educational Content:** ![Educational Content](5_educational_aspirin.jpeg) - Distinguishing between allowed educational queries and blocked medical advice.
-*   **Governance Dashboard:** ![Governance Dashboard](6_Metrics_governance_dashboard.jpeg) - Real-time metrics and decision traces.
-*   **Support Mode:** ![Support Mode](7_support_mode.jpeg) - Routing specific high-trust intents to human agent support mode.
-*   **Session Risk (Stateful Escalation):** ![Session Risk](8_session_risk.jpeg) - Multi-turn conversational penalty tracking and behavioral escalation blocking.
+*   **Medical Blocking:** ![Medical Blocking](demo%20ui%20screenshots/1_medical_intent_IMC.jpeg) - Enforcing Indian Medical Council Act by blocking prescription requests.
+*   **Self-Harm Prevention:** ![Self-Harm Prevention](demo%20ui%20screenshots/2_selfharm_mental_health.jpeg) - Immediate detection and blocking of self-harm related queries.
+*   **Financial Regulation:** ![Financial Regulation](demo%20ui%20screenshots/3_sebi_financial_blocking.jpeg) - Enforcing SEBI regulations against unauthorized investment advice.
+*   **PII Redaction:** ![PII Redaction](demo%20ui%20screenshots/4_pii_aadhaar_redaction.jpeg) - Zero-trust redaction of Aadhaar numbers before processing.
+*   **Educational Content:** ![Educational Content](demo%20ui%20screenshots/5_educational_aspirin.jpeg) - Distinguishing between allowed educational queries and blocked medical advice.
+*   **Governance Dashboard:** ![Governance Dashboard](demo%20ui%20screenshots/6_Metrics_governance_dashboard.jpeg) - Real-time metrics and decision traces.
+*   **Support Mode:** ![Support Mode](demo%20ui%20screenshots/7_support_mode.jpeg) - Routing specific high-trust intents to human agent support mode.
+*   **Session Risk (Stateful Escalation):** ![Session Risk](demo%20ui%20screenshots/8_session_risk.jpeg) - Multi-turn conversational penalty tracking and behavioral escalation blocking.
 
 ---
 
