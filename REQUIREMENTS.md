@@ -1,4 +1,4 @@
-# <img src="https://flagcdn.com/48x36/in.png" width="36" height="27" alt="India Flag" style="vertical-align: middle;"/> India AI Governance Engine (V2) — Requirements
+# <img src="https://flagcdn.com/48x36/in.png" width="36" height="27" alt="India Flag" style="vertical-align: middle;"/> India AI Governance Engine  — Requirements
 
 This document outlines the system requirements, software dependencies, infrastructure setup, and evaluation prerequisites required to build, deploy, and run the **India AI Governance Engine**.
 
@@ -347,6 +347,7 @@ Planned architectural and policy improvements for the upcoming versions:
 - Automated regulatory rule updates
 - Claim-level reasoning and stability verification
 - Distributed governance architecture
+
 
 
 
