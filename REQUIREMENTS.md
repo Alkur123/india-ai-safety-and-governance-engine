@@ -31,7 +31,7 @@ graph TD
         P5[6️⃣ Session Memory <br/> Multi-turn monitoring]
         P6[7️⃣ Policy Engine <br/> Regulatory enforcement]
         
-        User query --> P0
+        UserQuery[User query] --> P0
         P0 --> P1 --> P2 --> P2a --> P3 --> P4 --> P5 --> P6
     
     P6 --> DL{Decision Layer}
@@ -375,7 +375,3 @@ V2 implements deterministic, rule-based and semantic regulatory enforcement at i
 - **Adaptive Governance Learning:** Governance history and telemetry data will be used to automatically improve policy rules, semantic detection, and risk scoring.
 - **Multilingual Governance Policies:** Support for Tamil, Telugu, Bengali, and Marathi.
 - **Distributed Governance Architecture:** Scale processing across multiple regional nodes.
-
-
-
-
