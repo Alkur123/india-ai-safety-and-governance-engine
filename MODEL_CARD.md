@@ -20,6 +20,35 @@ The system integrates multiple model components including:
 - Risk scoring
 - Language model generation
 
+### 1.1 Architectural Flow
+
+```mermaid
+graph TD
+    classDef default fill:#1E1E1E,stroke:#444,stroke-width:1px,color:#fff,font-size:18px;
+    classDef user fill:#2C3E50,stroke:#34495E,stroke-width:2px,color:#fff,font-size:18px,font-weight:bold;
+    classDef allow fill:#145A32,stroke:#1E8449,stroke-width:2px,color:#fff,font-size:18px,font-weight:bold;
+    classDef block fill:#7B241C,stroke:#922B21,stroke-width:2px,color:#fff,font-size:18px,font-weight:bold;
+    classDef abstain fill:#B9770E,stroke:#D68910,stroke-width:2px,color:#fff,font-size:18px,font-weight:bold;
+
+    UQ(["👤 User Query"]):::user --> PR["1️⃣ PHI Redaction"]
+    PR --> HA["2️⃣ Harm & Attack Detection"]
+    HA --> ID["3️⃣ Intent Detection"]
+    ID --> SM["4️⃣ Session Memory S2.5"]
+    SM --> PE{"5️⃣ Policy Engine"}
+    
+    PE -->|Violation| BL["🛑 BLOCK"]:::block
+    PE -->|High Uncertainty| AB["⚠️ ABSTAIN"]:::abstain
+    PE -->|Emotional Distress| SP["🎧 SUPPORT MODE"]:::abstain
+    PE -->|Safe| SG["✅ Safe Generation"]:::allow
+    
+    SG --> VF["Verification"]
+    
+    BL --> EM["📊 Explainability + Metrics"]
+    AB --> EM
+    SP --> EM
+    VF --> EM
+```
+
 ---
 
 ## 2. 🧩 Model Components
@@ -184,4 +213,4 @@ The system is deployed using scalable cloud infrastructure:
 - **Hosting:** AWS EC2 (ap-south-1, Mumbai)
 - **Registry:** AWS Elastic Container Registry (ECR)
 
-The architecture supports a scalable, secure, and fully auditable AI governance infrastructure
+The architecture supports a scalable, secure, and fully auditable AI governance infrastructure.
