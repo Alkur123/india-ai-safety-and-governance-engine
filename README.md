@@ -64,42 +64,42 @@ The India AI Governance Engine operates as an inference-time middleware layer be
 ### ⚙️ Governance Architecture
 
 ```mermaid
-graph TD
-    classDef default fill:#1E1E1E,stroke:#444,stroke-width:1px,color:#fff;
-    classDef user fill:#2C3E50,stroke:#34495E,stroke-width:2px,color:#fff;
-    classDef LLM fill:#4A235A,stroke:#6C3483,stroke-width:2px,color:#fff;
-    classDef allow fill:#145A32,stroke:#1E8449,stroke-width:2px,color:#fff;
-    classDef block fill:#7B241C,stroke:#922B21,stroke-width:2px,color:#fff;
-    classDef abstain fill:#B9770E,stroke:#D68910,stroke-width:2px,color:#fff;
+graph LR
+    classDef default fill:#1E1E1E,stroke:#444,stroke-width:1px,color:#fff,font-size:18px;
+    classDef user fill:#2C3E50,stroke:#34495E,stroke-width:2px,color:#fff,font-size:18px,font-weight:bold;
+    classDef LLM fill:#4A235A,stroke:#6C3483,stroke-width:2px,color:#fff,font-size:18px,font-weight:bold;
+    classDef allow fill:#145A32,stroke:#1E8449,stroke-width:2px,color:#fff,font-size:18px,font-weight:bold;
+    classDef block fill:#7B241C,stroke:#922B21,stroke-width:2px,color:#fff,font-size:18px,font-weight:bold;
+    classDef abstain fill:#B9770E,stroke:#D68910,stroke-width:2px,color:#fff,font-size:18px,font-weight:bold;
     
-    U[👤 User Query <br/> Web UI / API Request]:::user --> GL[🛡️ Governance Engine Layer <br/> Inference-Time Safety]
+    U["👤 User Query <br/> Web UI / API Request"]:::user --> GL["🛡️ Governance Engine Layer <br/> Inference-Time Safety"]
     
     subgraph Pipeline [Governance Pipeline]
         direction TB
-        P0[0️⃣ Euphemism Expansion]
-        P1[1️⃣ PII Detection & Redaction <br/> Aadhaar, PAN, Mobile]
-        P2[2️⃣ Attack Vector Detection <br/> Jailbreaks, Injection]
-        P2a[3️⃣ Semantic Safety Engine <br/> Sentence similarity tracking]
-        P3[4️⃣ Intent Classification <br/> Medical, Financial, Legal]
-        P4[5️⃣ Governance Risk Engine <br/> Risk Scoring, Uncertainty]
-        P5[6️⃣ Session Memory <br/> Multi-turn Monitoring]
-        P6[7️⃣ Policy Engine <br/> SEBI, IMC, BCI, IPC]
+        P0["0️⃣ Euphemism Expansion"]
+        P1["1️⃣ PII Detection & Redaction <br/> Aadhaar, PAN, Mobile"]
+        P2["2️⃣ Attack Vector Detection <br/> Jailbreaks, Injection"]
+        P2a["3️⃣ Semantic Safety Engine <br/> Sentence similarity tracking"]
+        P3["4️⃣ Intent Classification <br/> Medical, Financial, Legal"]
+        P4["5️⃣ Governance Risk Engine <br/> Risk Scoring, Uncertainty"]
+        P5["6️⃣ Session Memory <br/> Multi-turn Monitoring"]
+        P6["7️⃣ Policy Engine <br/> SEBI, IMC, BCI, IPC"]
         
         P0 --> P1 --> P2 --> P2a --> P3 --> P4 --> P5 --> P6
     end
     
     GL --> Pipeline
-    Pipeline --> PD{Policy Decision}
+    Pipeline --> PD{"Policy Decision"}
     
-    PD -->|ALLOW| AL[✅ Send to LLM]:::allow
-    PD -->|BLOCK| BL[🛑 Block Request]:::block
-    PD -->|ABSTAIN| AB[⚠️ Request More Context]:::abstain
-    PD -->|SUPPORT MODE| SM[🎧 Engine Support Mode]:::abstain
+    PD -->|ALLOW| AL["✅ Send to LLM"]:::allow
+    PD -->|BLOCK| BL["🛑 Block Request"]:::block
+    PD -->|ABSTAIN| AB["⚠️ Request More Context"]:::abstain
+    PD -->|SUPPORT MODE| SM["🎧 Engine Support Mode"]:::abstain
     
-    AL --> LLM[🧠 LLM Generation Layer <br/> Optional Model Call]:::LLM
-    LLM --> VL[Verification Layer <br/> Output Safety Check]
+    AL --> LLM["🧠 LLM Generation Layer <br/> Optional Model Call"]:::LLM
+    LLM --> VL["Verification Layer <br/> Output Safety Check"]
     
-    VL --> EE[📊 Explainability Engine <br/> Governance Timeline <br/> Metrics & Logging]
+    VL --> EE["📊 Explainability Engine <br/> Governance Timeline <br/> Metrics & Logging"]
     BL --> EE
     AB --> EE
     SM --> EE
