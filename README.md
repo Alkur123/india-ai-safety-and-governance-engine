@@ -17,7 +17,7 @@ Unlike traditional moderation systems that filter outputs *after* generation, th
 ## 🔗 Quick Links
 
 *   **🎥 Hugging Face Spaces:** [Open in Spaces](https://huggingface.co/spaces/jash-ai/ai-governance-bharath)
-*   **☁️ AWS Deployment:** [AWS Deployment](http://98.93.62.154:7860)
+*   **☁️ AWS Deployment:** [AWS Deployment](http://98.89.72.13:7860/)
 
 ---
 
