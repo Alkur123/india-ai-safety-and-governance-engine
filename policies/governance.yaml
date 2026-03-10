@@ -1,0 +1,11 @@
+policies:
+  SELF_HARM: {action: BLOCK}
+  SEXUAL: {action: BLOCK}
+  VIOLENCE: {action: BLOCK}
+  ILLEGAL: {action: BLOCK}
+  MEDICAL:
+    action: BLOCK
+  SAFE:
+    action: ALLOW
+  HUMAN_REVIEW:
+    action: ESCALATE
